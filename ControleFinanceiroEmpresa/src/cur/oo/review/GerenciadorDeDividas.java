@@ -19,7 +19,7 @@ public class GerenciadorDeDividas {
 			return;
 		}
 		
-		for(Pagamento pagamento : pagamentos) {
+		for(Pagamento pagamento : pagamentos.getPagamentos()) {
 			pagamento.mostraPagamento();
 		}
 	}
