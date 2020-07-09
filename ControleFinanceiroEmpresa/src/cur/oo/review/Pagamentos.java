@@ -2,8 +2,6 @@ package cur.oo.review;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collection;
-import java.util.HashSet;
 
 public class Pagamentos {
 	private double valorPago;

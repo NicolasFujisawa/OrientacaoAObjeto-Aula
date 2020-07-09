@@ -5,10 +5,7 @@ import javax.crypto.IllegalBlockSizeException;
 public class Cnpj {
 	private String cnpj;
 	
-	public Cnpj(String cnpj) throws IllegalBlockSizeException {
-		if(cnpj.length() < 13) {
-			throw new IllegalBlockSizeException("tamanho de variavel invalido");
-		}
+	public Cnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 	
@@ -51,6 +48,11 @@ public class Cnpj {
     }
     private int segundoDigitoCorreto() {
         return 5;
+    }
+    
+    @Override
+    public String toString() {
+    	return this.cnpj;
     }
 
 }

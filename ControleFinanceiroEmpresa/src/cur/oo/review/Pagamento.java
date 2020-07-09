@@ -2,6 +2,8 @@ package cur.oo.review;
 
 import java.util.Calendar;
 
+import javax.crypto.IllegalBlockSizeException;
+
 public class Pagamento {
 	private String pagador;
 	private Cnpj cnpjPagador;
@@ -25,6 +27,10 @@ public class Pagamento {
 	public void setCnpjPagador(Cnpj cnpjPagador) {
 		this.cnpjPagador = cnpjPagador;
 	}
+	public void setCnpjPagador(String cnpjPagador) {
+		this.cnpjPagador = new Cnpj(cnpjPagador);
+	}
+	
 	public double getValor() {
 		return valor;
 	}
