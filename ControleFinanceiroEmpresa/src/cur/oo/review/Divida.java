@@ -3,28 +3,28 @@ package cur.oo.review;
 public class Divida {
 	private double total;
 	private String credor;
-	private Cnpj cnpj;
+	private Documento docCredor;
 	private Pagamentos pagamentos = new Pagamentos();
 	
 	public Divida() {
 		
 	}
 	
-	public Divida(double valor, String credor, Cnpj cnpjCredor) {
+	public Divida(double valor, String credor, Documento docCredor) {
 		this.setCredor(credor);
 		this.setTotal(valor);
-		this.getCnpj().setCnpj(cnpjCredor.getCnpj());
+		this.setDocumentoCredor(docCredor);
 		
 	}
 	
 	public void registra(Pagamento pagamento) {
 		pagamentos.registra(pagamento);
 	}
-	public Cnpj getCnpj() {
-		return cnpj;
+	public Documento getDocumentoCredor() {
+		return this.docCredor;
 	}
-	public void setCnpjCredor(String cnpjCredor) {
-		cnpj = new Cnpj(cnpjCredor);
+	public void setDocumentoCredor(Documento docCredor) {
+		this.docCredor = docCredor;
 	}
 	
 	public double getTotal() {

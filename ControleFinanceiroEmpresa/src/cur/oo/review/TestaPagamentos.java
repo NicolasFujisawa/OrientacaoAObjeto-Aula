@@ -1,7 +1,5 @@
 package cur.oo.review;
 
-import java.util.ArrayList;
-
 public class TestaPagamentos {
 
 	public static void main(String[] args) {

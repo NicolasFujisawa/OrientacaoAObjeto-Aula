@@ -1,8 +1,6 @@
 package cur.oo.review;
 
-import javax.crypto.IllegalBlockSizeException;
-
-public class Cnpj {
+public class Cnpj implements Documento {
 	private String cnpj;
 	
 	public Cnpj(String cnpj) {
@@ -15,7 +13,7 @@ public class Cnpj {
 			return false;
 		}
 		Cnpj c = (Cnpj) o;
-		if(c.getCnpj().equals(this.getCnpj())) {
+		if(c.getValor().equals(this.getValor())) {
 			return true;
 		}
 		return false;
@@ -25,26 +23,18 @@ public class Cnpj {
 	public int hashCode() {
 		return cnpj.hashCode();
 	}
-	
-	public String getCnpj() {
-		return cnpj;
-	}
 	public void setCnpj(String cpnj) {
 		this.cnpj = cpnj;
 	}
-	
-	public boolean ehValido() {
-        return primeiroDigitoVerificador() == primeiroDigitoCorreto()
-                && segundoDigitoVerificador() == segundoDigitoCorreto();
-    }
+
     private int primeiroDigitoVerificador() {
-        return getCnpj().charAt(0);
+        return getValor().charAt(0);
     }
     private int primeiroDigitoCorreto() {
         return 2;
     }
     private int segundoDigitoVerificador() {
-    	return getCnpj().charAt(1);
+    	return getValor().charAt(1);
     }
     private int segundoDigitoCorreto() {
         return 5;
@@ -54,5 +44,16 @@ public class Cnpj {
     public String toString() {
     	return this.cnpj;
     }
+
+	@Override
+	public boolean ehValido() {
+		return primeiroDigitoVerificador() == primeiroDigitoCorreto()
+                && segundoDigitoVerificador() == segundoDigitoCorreto();
+	}
+
+	@Override
+	public String getValor() {
+		return cnpj;
+	}
 
 }

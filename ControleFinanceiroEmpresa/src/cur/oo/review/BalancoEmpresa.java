@@ -1,20 +1,22 @@
 package cur.oo.review;
 
-import java.util.HashMap;
-
 public class BalancoEmpresa {
 	
-	private HashMap<Cnpj, Divida> dividas = new HashMap<Cnpj, Divida>();
+	private ArmazenadorDeDividas ad;
 	
-	public void registrarDivida(Cnpj credor, Divida divida) {		
-		dividas.put(credor, divida);
+	public BalancoEmpresa(ArmazenadorDeDividas ad) {
+		this.ad = ad;
 	}
 	
-	public void pagaDivida(Cnpj cnpjCredor, Pagamento pagamento) {
-		Divida divida = dividas.get(cnpjCredor);
-		
+	public void registrarDivida(Divida divida) {		
+		ad.salva(divida);
+	}
+	
+	public void pagaDivida(Documento docCredor, Pagamento pagamento) {
+		Divida divida = ad.carrega(docCredor);
 		if(divida != null) {
 			divida.registra(pagamento);
 		}
+		ad.salva(divida);
 	}
 }

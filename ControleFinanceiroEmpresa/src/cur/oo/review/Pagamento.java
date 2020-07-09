@@ -2,16 +2,14 @@ package cur.oo.review;
 
 import java.util.Calendar;
 
-import javax.crypto.IllegalBlockSizeException;
-
 public class Pagamento {
 	private String pagador;
-	private Cnpj cnpjPagador;
+	private Documento docPagador;
 	private double valor;
 	private Calendar data;
 	
 	public void mostraPagamento() {
-		System.out.println("Pagamento " + this.getPagador() + ":" + this.getCnpjPagador() + ";");
+		System.out.println("Pagamento " + this.getPagador() + ":" + this.getDocumentoPagador() + ";");
 		System.out.println("R$" + this.getValor() + " Data: " + this.getData());
 	}
 	
@@ -21,14 +19,11 @@ public class Pagamento {
 	public void setPagador(String pagador) {
 		this.pagador = pagador;
 	}
-	public Cnpj getCnpjPagador() {
-		return cnpjPagador;
+	public Documento getDocumentoPagador() {
+		return docPagador;
 	}
-	public void setCnpjPagador(Cnpj cnpjPagador) {
-		this.cnpjPagador = cnpjPagador;
-	}
-	public void setCnpjPagador(String cnpjPagador) {
-		this.cnpjPagador = new Cnpj(cnpjPagador);
+	public void setDocumentoPagador(Documento docPagador) {
+		this.docPagador = docPagador;
 	}
 	
 	public double getValor() {

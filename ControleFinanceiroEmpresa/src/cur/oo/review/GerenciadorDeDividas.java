@@ -5,10 +5,10 @@ import java.util.Calendar;
 public class GerenciadorDeDividas {
 	private Pagamentos pagamentos = new Pagamentos();
 	
-	public void efetuaPagamento(Divida divida, double valor, String pagador, Cnpj cnpjPagador) {
+	public void efetuaPagamento(Divida divida, double valor, String pagador, Documento docPagador) {
 		Pagamento pagamento = new Pagamento();
 		pagamento.setValor(valor);
-		pagamento.setCnpjPagador(cnpjPagador);
+		pagamento.setDocumentoPagador(docPagador);
 		pagamento.setPagador(pagador);
 		pagamento.setData(Calendar.getInstance());
 		pagamentos.registra(pagamento);
